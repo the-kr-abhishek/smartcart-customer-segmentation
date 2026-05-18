@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.cluster import AgglomerativeClustering
 
-# ---------------- PAGE CONFIG ----------------
+# PAGE CONFIG 
 st.set_page_config(
     page_title="SmartCart Customer Segmentation",
     page_icon="🛒",
@@ -18,10 +18,8 @@ st.set_page_config(
 
 st.title("🛒 SmartCart Customer Segmentation")
 st.write(
-    "Upload dataset and analyze customer purchasing behavior using clustering."
-)
-
-# ---------------- DATASET UPLOAD ----------------
+    "Upload dataset and analyze customer purchasing behavior using clustering.")
+#  DATASET UPLOAD 
 uploaded_file = st.file_uploader(
     "Upload SmartCart Dataset (CSV)",
     type=["csv"]
@@ -33,7 +31,7 @@ if uploaded_file is None:
 
 data = pd.read_csv(uploaded_file)
 
-# ---------------- PREPROCESSING ----------------
+#  PREPROCESSING 
 def preprocess_data(df):
 
     data = df.copy()
@@ -141,7 +139,7 @@ def preprocess_data(df):
 
 processed_data, pca_data = preprocess_data(data)
 
-# ---------------- DASHBOARD ----------------
+# DASHBOARD 
 st.header("📊 Dashboard")
 
 col1, col2, col3 = st.columns(3)
@@ -161,11 +159,11 @@ col3.metric(
     f"${processed_data['Total_Spent'].mean():,.0f}"
 )
 
-# ---------------- DATA PREVIEW ----------------
+#  DATA PREVIEW 
 st.subheader("Dataset Preview")
 st.dataframe(processed_data.head())
 
-# ---------------- EDA ----------------
+#  EDA 
 st.header("📈 Exploratory Data Analysis")
 
 col1, col2 = st.columns(2)
@@ -198,7 +196,7 @@ fig = px.scatter(
 
 st.plotly_chart(fig, use_container_width=True)
 
-# ---------------- PCA CLUSTER ----------------
+#  PCA CLUSTER 
 st.header("🎯 Customer Segmentation")
 
 pca_df = pd.DataFrame({
@@ -217,7 +215,7 @@ fig = px.scatter(
 
 st.plotly_chart(fig, use_container_width=True)
 
-# ---------------- CLUSTER SUMMARY ----------------
+#  CLUSTER SUMMARY 
 st.subheader("Cluster Summary")
 
 cluster_summary = processed_data.groupby(
