@@ -178,7 +178,7 @@ These insights can help businesses design targeted marketing campaigns and impro
 
 ## Live Demo
 
-Streamlit App: `YOUR_STREAMLIT_LINK`
+Streamlit App: https://the-kr-abhishek-smartcart-customer-segmentation-app-avy7uu.streamlit.app/
 
 ---
 
